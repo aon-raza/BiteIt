@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".home">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/RL_Main"
+            android:gravity="center_horizontal">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="fitStart"
+                android:id="@+id/back_image"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/background_image_2"
+                android:focusedByDefault="true"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/home"
+                android:id="@+id/login"
+                android:textSize="8pt"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:textColor="#ffffff"
+                android:layout_marginTop="20pt"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="10pt"
+                android:layout_height="10pt"
+                android:id="@+id/more"
+                android:src="@drawable/cart"
+                android:layout_marginTop="21pt"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="8pt"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/menu"
+                android:src="@drawable/menu"
+                android:layout_marginTop="21pt"
+                android:layout_alignParentLeft="true"
+                android:layout_marginStart="8pt"/>
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="120pt"
+                android:layout_height="wrap_content"
+                android:text="@string/discover_restaurant_in_your_city"
+                android:id="@+id/discover"
+                android:layout_below="@+id/login"
+                android:textAlignment="textStart"
+                android:textStyle="bold"
+                android:textSize="10pt"
+                android:gravity="center"
+                android:textColor="#ffffff"
+                android:layout_marginStart="12pt"
+                android:layout_marginTop="12pt"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/search_Layout"
+                android:layout_marginHorizontal="12pt"
+                android:layout_marginTop="8pt"
+                android:layout_marginBottom="4pt"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_below="@+id/discover"
+                app:boxCornerRadiusBottomEnd="16pt"
+                app:boxCornerRadiusTopEnd="16pt"
+                app:boxCornerRadiusBottomStart="16pt"
+                app:boxCornerRadiusTopStart="16pt"
+                app:boxBackgroundColor="@color/white">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:drawableLeft="@drawable/search"
+                    android:drawableRight="@drawable/filter"
+                    android:id="@+id/search_field"
+                    android:focusable="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/search_here"
+                    android:inputType="text"
+                    android:text="" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/categories"
+                android:id="@+id/categories"
+                android:layout_below="@+id/search_Layout"
+                android:textStyle="bold"
+                android:textSize="10pt"
+                android:textColor="@color/black"
+                android:layout_marginStart="12pt"
+                android:layout_marginTop="40pt"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/see_all"
+                android:id="@+id/see_all"
+                android:layout_below="@+id/search_Layout"
+                android:textSize="8pt"
+                android:textColor="@color/purple_200"
+                android:layout_marginEnd="12pt"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="41pt"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/recyclerViewMenu"
+                android:layout_below="@id/categories"
+                android:layout_above="@id/bottomNavigation"
+                android:background="@color/white"
+                android:paddingHorizontal="12pt"
+                android:layout_marginTop="4pt"
+                android:paddingBottom="4pt"
+                android:clipToPadding="false"
+                android:orientation="vertical"/>
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/bottomNavigation"
+                android:layout_alignParentBottom="true"
+                android:background="?android:attr/windowBackground"
+                app:itemIconTint="@color/purple_200"
+                app:menu="@menu/bottom_navigation_menu"
+                app:theme="@style/BottomNavigationTheme"
+                app:itemBackground="@color/teal_200"
+                android:backgroundTint="@color/teal_200"/>
+        </RelativeLayout>
+
+</RelativeLayout>

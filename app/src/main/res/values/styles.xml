@@ -1,0 +1,8 @@
+<resources>
+
+    <style name="BottomNavigationTheme" parent="Widget.Design.BottomNavigationView">
+
+        <item name="colorPrimary">@color/purple_200</item>
+
+    </style>
+</resources>

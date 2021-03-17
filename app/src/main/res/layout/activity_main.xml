@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/RL_Main"
+            android:gravity="center_horizontal">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="fitStart"
+                android:id="@+id/back_image"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/background_image"
+                android:focusedByDefault="true"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/log_in1"
+                android:id="@+id/login"
+                android:textSize="8pt"
+                android:gravity="center"
+                android:textColor="#ffffff"
+                android:layout_marginTop="16pt"/>
+
+            <com.facebook.login.widget.LoginButton
+                android:id="@+id/login_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:theme="@style/com_facebook_button"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/login"
+                android:layout_marginTop="8pt"
+                android:layout_marginBottom="8pt" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:layout_marginHorizontal="16pt"
+                android:layout_marginTop="130pt"
+                android:id="@+id/signin_layout">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:id="@+id/cardview_image"
+                    app:cardCornerRadius="10pt"
+                    app:cardMaxElevation="0.5pt"
+                    app:cardElevation="0.3pt"
+                    android:background="@color/teal_200">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/teal_200">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/i_email_Layout"
+                            android:layout_marginHorizontal="16pt"
+                            android:layout_marginTop="12pt"
+                            android:layout_marginBottom="4pt"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            app:boxCornerRadiusBottomEnd="16pt"
+                            app:boxCornerRadiusTopEnd="16pt"
+                            app:boxCornerRadiusBottomStart="16pt"
+                            app:boxCornerRadiusTopStart="16pt"
+                            app:boxBackgroundColor="@color/white">
+
+                            <androidx.appcompat.widget.AppCompatEditText
+                                android:id="@+id/i_email_field"
+                                android:layout_width="match_parent"
+                                android:gravity="center"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/email"
+                                android:inputType="text"
+                                android:text="" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/i_password_Layout"
+                            android:layout_below="@+id/i_email_Layout"
+                            android:layout_marginHorizontal="16pt"
+                            android:layout_marginTop="8pt"
+                            android:layout_marginBottom="4pt"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            app:boxCornerRadiusBottomEnd="16pt"
+                            app:boxCornerRadiusTopEnd="16pt"
+                            app:boxCornerRadiusBottomStart="16pt"
+                            app:boxCornerRadiusTopStart="16pt"
+                            app:boxBackgroundColor="@color/white">
+
+                            <androidx.appcompat.widget.AppCompatEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/i_password_field"
+                                android:text=""
+                                android:gravity="center"
+                                android:hint="@string/password"
+                                android:inputType="textPassword"/>
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/forgot_password"
+                            android:text="@string/forgot_password"
+                            android:gravity="center"
+                            android:layout_below="@+id/i_password_Layout"
+                            android:textSize="8pt"
+                            android:layout_centerInParent="true"
+                            android:layout_marginTop="8pt"
+                            android:layout_marginBottom="32pt"/>
+
+                    </RelativeLayout>
+
+
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/sign_in_btn"
+                    android:text="@string/sign_in"
+                    android:textColor="#ffffff"
+                    android:gravity="center"
+                    android:background="@drawable/button_shape"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginHorizontal="32pt"
+                    android:layout_marginTop="128pt"
+                    android:layout_marginBottom="4pt"
+                    android:paddingHorizontal="5pt"
+                    android:paddingVertical="8pt" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/signin_layout"
+                android:id="@+id/signin_social_layout"
+                android:gravity="center">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="42pt"
+                    android:layout_height="42pt"
+                    android:scaleType="centerCrop"
+                    android:id="@+id/sign_in_facebook"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/facebook"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="42pt"
+                    android:layout_height="42pt"
+                    android:scaleType="centerCrop"
+                    android:id="@+id/sign_in_gmail"
+                    android:layout_toEndOf="@id/sign_in_facebook"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/google"/>
+
+
+
+            </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/signin_social_layout"
+            android:gravity="center">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/dont_have_label"
+                android:text="@string/don_t_have_an_account"
+                android:gravity="center"
+                android:textSize="8pt"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8pt"
+                android:layout_marginBottom="8pt"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/signup_label"
+                android:text="@string/signup"
+                android:gravity="center"
+                android:layout_toEndOf="@+id/dont_have_label"
+                android:textSize="8pt"
+                android:layout_marginStart="1pt"
+                android:textColor="@color/purple_200"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8pt"
+                android:layout_marginBottom="8pt"/>
+
+
+        </RelativeLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+
+
+
+</RelativeLayout>
