@@ -11,7 +11,9 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.BiteIt">
-        <activity android:name=".home"></activity>
+        <activity android:name=".constraintLayoutExample"></activity>
+        <activity android:name=".viewBindingExample" />
+        <activity android:name=".home" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

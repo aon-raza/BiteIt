@@ -14,6 +14,7 @@ import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import com.facebook.AccessToken;
@@ -27,7 +28,9 @@ import com.facebook.Profile;
 import com.facebook.appevents.AppEventsLogger;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+import com.mongodb.util.JSON;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -35,18 +38,53 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 
+import Apis.controllers.Api;
+import Apis.controllers.Controller;
+import Apis.models.user;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
+import retrofit2.Retrofit;
+
 public class MainActivity extends AppCompatActivity {
     private AppCompatImageView sign_in_facebook;
+    private AppCompatImageView sign_in_gmail;
     CallbackManager callbackManager;
     private LoginButton loginButton;
     private static final String EMAIL = "email";
     private AppCompatTextView forgot_password;
 
+    CompositeDisposable compositeDisposable = new CompositeDisposable();
+    Api api;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Retrofit retrofit = Controller.getInstance();
+        api = retrofit.create(Api.class);
+
+        user USER = new user("johndoe@example.com", "1234", "hello");
+        compositeDisposable.add(api.login(USER)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<Object>() {
+                    @Override
+                    public void accept(Object s) throws Exception {
+
+                        //my own
+                        JSONObject jsonObject = new JSONObject(JSON.serialize(s));
+                        Toast.makeText(getApplicationContext(), jsonObject.toString(), Toast.LENGTH_SHORT).show();
+
+                    }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable throwable) throws Exception {
+                        Toast.makeText(getApplicationContext(), "Server Error!" +throwable.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }));
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,
@@ -54,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         sign_in_facebook = findViewById(R.id.sign_in_facebook);
+        sign_in_gmail = findViewById(R.id.sign_in_gmail);
         loginButton = findViewById(R.id.login_button);
         forgot_password = findViewById(R.id.forgot_password);
 
@@ -98,7 +137,18 @@ public class MainActivity extends AppCompatActivity {
         sign_in_facebook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, viewBindingExample.class);
+                startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+            }
+        });
 
+        sign_in_gmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, constraintLayoutExample.class);
+                startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             }
         });
     }
